@@ -1,31 +1,28 @@
-Altai Krai
-Altai Republic
-Chechen Republic
-Chukotka Autonomous Okrug
-Chuvash Republic
-Kabardino-Balkar Republic
-Kamchatka Krai
-Karachay-Cherkessia
-Khabarovsk Krai
-Komi Republic
-Krasnodar Krai
-Krasnoyarsk Krai
-Mari El
-Perm Krai
-Primorsky Krai
-Republic of Adygea
-Republic of Bashkortostan
-Republic of Buryatia
-Republic of Crimea
-Republic of Khakassia
-Republic of Mordovia
-Republic of North Ossetia–Alania
-Republic of Tatarstan
-Republic of Tatarstan[1]
-Sakha Republic
-Stavropol Krai
-Tuva Republic
-Zabaykalsky Krai
-![Uploading image.png…]()
-
-
+Altai Krai, AL
+Altai Republic, ALR
+Chechen Republic, CE
+Chukotka Autonomous Okrug, CHU
+Chuvash Republic, CU
+Kabardino-Balkar Republic, KB
+Kamchatka Krai, KAM
+Karachay-Cherkessia, KC
+Khabarovsk Krai, KHA
+Komi Republic, KO
+Krasnodar Krai, KDA
+Krasnoyarsk Krai, KYA
+Mari El, ME
+Perm Krai, PER
+Primorsky Krai, PRI
+Republic of Adygea, AD
+Republic of Bashkortostan, BA
+Republic of Buryatia, BU
+Republic of Crimea, CR
+Republic of Khakassia, KK
+Republic of Mordovia, MO
+Republic of North Ossetia–Alania, NOA
+Republic of Tatarstan, TA
+Republic of Tatarstan, TA (duplicate entry, same abbreviation)
+Sakha Republic, SA
+Stavropol Krai, STA
+Tuva Republic, TU
+Zabaykalsky Krai, ZA
