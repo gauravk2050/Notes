@@ -1,28 +1,27 @@
-Altai Krai, AL
-Altai Republic, ALR
-Chechen Republic, CE
-Chukotka Autonomous Okrug, CHU
-Chuvash Republic, CU
-Kabardino-Balkar Republic, KB
-Kamchatka Krai, KAM
-Karachay-Cherkessia, KC
-Khabarovsk Krai, KHA
-Komi Republic, KO
-Krasnodar Krai, KDA
-Krasnoyarsk Krai, KYA
-Mari El, ME
-Perm Krai, PER
-Primorsky Krai, PRI
-Republic of Adygea, AD
-Republic of Bashkortostan, BA
-Republic of Buryatia, BU
-Republic of Crimea, CR
-Republic of Khakassia, KK
-Republic of Mordovia, MO
-Republic of North Ossetia–Alania, NOA
-Republic of Tatarstan, TA
-Republic of Tatarstan, TA (duplicate entry, same abbreviation)
-Sakha Republic, SA
-Stavropol Krai, STA
-Tuva Republic, TU
-Zabaykalsky Krai, ZA
+#!/bin/bash
+
+
+# Source directory
+src_dir="../srcfiles/"
+
+# Target directory
+target_dir="/var/informatica/iics/dev/be_cdr/srcfiles/Archive/"
+
+# Keyword to search for in filenames
+keyword="_test_"
+
+# Check if the source directory exists
+if [ ! -d "$src_dir" ]; then
+  echo "Source directory '$src_dir' does not exist."
+  exit 1
+fi
+
+# Check if the target directory exists; if not, create it
+#if [ ! -d "$target_dir" ]; then
+ # mkdir -p "$target_dir"
+#fi
+
+# Move files containing the keyword to the target directory
+find "$src_dir" -type f -name "*$keyword*" -exec mv {} "$target_dir" \;
+
+echo "Files containing the keyword '$keyword' have been moved to '$target_dir'."
