@@ -50,4 +50,60 @@
 				6.3.12.1.2 First Name	
 				6.3.12.1.3 OwnerRelation
 				6.3.12.1.4 OwnerRelationDetail
+
+
+
+<Root>
+    <HolderCategory></HolderCategory>
+    <EndFiscalPeriodDate></EndFiscalPeriodDate>
+    <Currency></Currency>
+    <RQOnlineVerification></RQOnlineVerification>
+    <TransitNumber></TransitNumber>
+    <Assetlist>
+        <Asset type="Liquidated Registered Pension Plan">
+            <OtherInformation></OtherInformation>
+            <AssetType></AssetType>
+            <PlanRegistrationNum></PlanRegistrationNum>
+            <PromoterName></PromoterName>
+            <SubmissionReason></SubmissionReason>
+            <SubmissionReasonDetail></SubmissionReasonDetail>
+            <AssetValue></AssetValue>
+            <EndEmploymentDate></EndEmploymentDate>
+            <FedIncomeTaxWithheld></FedIncomeTaxWithheld>
+            <ProvIncomeTaxWithheld></ProvIncomeTaxWithheld>
+            <OwnersList>
+                <Owner>
+                    <Last Name></Last Name>
+                    <First Name></First Name>
+                    <Email></Email>
+                    <Sex></Sex>
+                    <BirthDate></BirthDate>
+                    <DeathDate></DeathDate>
+                    <SIN></SIN>
+                    <NEQ></NEQ>
+                    <LANG></LANG>
+                    <Address type="ADDRESS 1">
+                        <ADDRESS_1></ADDRESS_1>
+                        <ADDRESS_2></ADDRESS_2>
+                        <ADDRESS_3></ADDRESS_3>
+                        <ADDRESS_4></ADDRESS_4>
+                        <CITY></CITY>
+                        <PROVINCE></PROVINCE>
+                        <PostalCode></PostalCode>
+                        <Country></Country>
+                    </Address>
+                </Owner>
+            </OwnersList>
+            <BeneficiariesList>
+                <Beneficiary>
+                    <Last Name></Last Name>
+                    <First Name></First Name>
+                    <OwnerRelation></OwnerRelation>
+                    <OwnerRelationDetail></OwnerRelationDetail>
+                </Beneficiary>
+            </BeneficiariesList>
+        </Asset>
+    </Assetlist>
+</Root>
+
 					
