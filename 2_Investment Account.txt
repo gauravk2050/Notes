@@ -53,3 +53,61 @@
 				6.2.5.1.2 Amount
 				
 		6.2.6 AssetType
+
+
+
+
+<Root>
+    <HolderCategory></HolderCategory>
+    <EndFiscalPeriodDate></EndFiscalPeriodDate>
+    <Currency></Currency>
+    <RQOnlineVerification></RQOnlineVerification>
+    <TransitNumber></TransitNumber>
+    <Assetlist>
+        <Asset type="Investment Account">
+            <OwnersList>
+                <Owner>
+                    <Last Name></Last Name>
+                    <First Name></First Name>
+                    <Email></Email>
+                    <Sex></Sex>
+                    <BirthDate></BirthDate>
+                    <DeathDate></DeathDate>
+                    <SIN></SIN>
+                    <NEQ></NEQ>
+                    <LANG></LANG>
+                    <Address type="ADDRESS 1">
+                        <ADDRESS_1></ADDRESS_1>
+                        <ADDRESS_2></ADDRESS_2>
+                        <ADDRESS_3></ADDRESS_3>
+                        <ADDRESS_4></ADDRESS_4>
+                        <CITY></CITY>
+                        <PROVINCE></PROVINCE>
+                        <PostalCode></PostalCode>
+                        <Country></Country>
+                    </Address>
+                </Owner>
+            </OwnersList>
+            <AccountOrFolioNumber></AccountOrFolioNumber>
+            <Asset Type></Asset Type>
+            <SecuritiesList>
+                <Security>
+                    <Ticker></Ticker>
+                    <SecurityType></SecurityType>
+                    <SecurityCurrency></SecurityCurrency>
+                    <LastStatementDate></LastStatementDate>
+                    <LastStatementUnitPrice></LastStatementUnitPrice>
+                    <NumUnits></NumUnits>
+                </Security>
+            </SecuritiesList>
+            <DepositList>
+                <Deposit>
+                    <Currency></Currency>
+                    <Amount></Amount>
+                </Deposit>
+            </DepositList>
+            <AssetType></AssetType>
+        </Asset>
+    </Assetlist>
+</Root>
+
