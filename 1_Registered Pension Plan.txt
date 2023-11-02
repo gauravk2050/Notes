@@ -1,0 +1,55 @@
+0 Root
+1 HolderCategory
+2 EndFiscalPeriodDate
+3 Currency
+4 RQOnlineVerification
+5 TransitNumber
+6 Assetlist
+
+	6.1 Asset type Registered Pension Plan
+	
+		6.1.1 OtherInformation
+		6.1.2 AssetType
+		6.1.3 PlanRegistrationNum
+		6.1.4 PromoterName
+		6.1.5 SubmissionReason
+		6.1.6 SubmissionReasonDetail
+		6.1.7 Asset value
+		6.1.8 SourcePlanType
+		6.1.9 DestinationPlanType
+		6.1.10 EndEmploymentDate
+		6.1.11 PlanOpenDate
+		6.1.12 NewPlan
+		6.1.13 ApplicableLaw
+		6.1.14 OwnersList
+			
+			6.1.14.1 Owner
+			
+				6.1.14.1.1 Last Name
+				6.1.14.1.2 First Name
+				6.1.14.1.3 Email
+				6.1.14.1.4 Sex
+				6.1.14.1.5 BirthDate
+				6.1.14.1.6 DeathDate
+				6.1.14.1.7 SIN
+				6.1.14.1.8 NEQ
+				6.1.14.1.9 LANG
+				6.1.14.1.10 Address type
+				
+					6.1.14.1.10.1 ADDRESS 1
+					6.1.14.1.10.2 ADDRESS 2
+					6.1.14.1.10.3 ADDRESS 3
+					6.1.14.1.10.4 ADDRESS 4
+					6.1.14.1.10.5 CITY
+					6.1.14.1.10.6 PROVINCE
+					6.1.14.1.10.7 PostalCode
+					6.1.14.1.10.8 Country
+
+		6.1.15 Beneficiaries List
+		
+			6.1.15.1 Beneficiary	
+			
+				6.1.15.1.1 Last Name
+				6.1.15.1.2 First Name
+				6.1.15.1.3 OwnerRelation
+				6.1.15.1.4 OwnerRelationDetail
