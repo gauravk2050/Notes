@@ -1,0 +1,56 @@
+<Root>
+    <HolderCategory></HolderCategory>
+    <EndFiscalPeriodDate></EndFiscalPeriodDate>
+    <Currency></Currency>
+    <RQOnlineVerification></RQOnlineVerification>
+    <TransitNumber></TransitNumber>
+    <Assetlist>
+        <Asset type="Registered Pension Plan">
+            <OtherInformation></OtherInformation>
+            <AssetType></AssetType>
+            <PlanRegistrationNum></PlanRegistrationNum>
+            <PromoterName></PromoterName>
+            <SubmissionReason></SubmissionReason>
+            <SubmissionReasonDetail></SubmissionReasonDetail>
+            <AssetValue></AssetValue>
+            <SourcePlanType></SourcePlanType>
+            <DestinationPlanType></DestinationPlanType>
+            <EndEmploymentDate></EndEmploymentDate>
+            <PlanOpenDate></PlanOpenDate>
+            <NewPlan></NewPlan>
+            <ApplicableLaw></ApplicableLaw>
+            <OwnersList>
+                <Owner>
+                    <Last Name></Last Name>
+                    <First Name></First Name>
+                    <Email></Email>
+                    <Sex></Sex>
+                    <BirthDate></BirthDate>
+                    <DeathDate></DeathDate>
+                    <SIN></SIN>
+                    <NEQ></NEQ>
+                    <LANG></LANG>
+                    <Address type="ADDRESS 1">
+                        <ADDRESS 1></ADDRESS 1>
+                        <ADDRESS 2></ADDRESS 2>
+                        <ADDRESS 3></ADDRESS 3>
+                        <ADDRESS 4></ADDRESS 4>
+                        <CITY></CITY>
+                        <PROVINCE></PROVINCE>
+                        <PostalCode></PostalCode>
+                        <Country></Country>
+                    </Address>
+                </Owner>
+            </OwnersList>
+            <BeneficiariesList>
+                <Beneficiary>
+                    <Last Name></Last Name>
+                    <First Name></First Name>
+                    <OwnerRelation></OwnerRelation>
+                    <OwnerRelationDetail></OwnerRelationDetail>
+                </Beneficiary>
+            </BeneficiariesList>
+        </Asset>
+        <!-- Add other Asset types with similar structure here -->
+    </Assetlist>
+</Root>
