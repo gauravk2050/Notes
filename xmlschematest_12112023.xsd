@@ -30,3 +30,47 @@
   </xs:element>
 
 </xs:schema>
+--------------------------------------------------------------------------------------------------
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- AddressType -->
+  <xs:simpleType name="AddressType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CAD"/>
+      <xs:enumeration value="US"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Address Element -->
+  <xs:element name="Address">
+    <xs:complexType>
+      <xs:attribute name="type" type="AddressType" use="required"/>
+      <xs:choice>
+        <!-- Address type = CAD -->
+        <xs:element name="CAD">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="streetNumber" type="xs:string" minOccurs="0" maxOccurs="1"/>
+              <xs:element name="Direction" type="xs:string" minOccurs="0" maxOccurs="1"/>
+              <xs:element name="City" type="xs:string" minOccurs="0" default="newjercy"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+
+        <!-- Address type = US -->
+        <xs:element name="US">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="streetNumber" type="xs:string" minOccurs="0" maxOccurs="1"/>
+              <xs:element name="Area" type="xs:string" minOccurs="0" maxOccurs="1"/>
+              <xs:element name="Province" type="xs:string" minOccurs="0" default="London"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
