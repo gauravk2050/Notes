@@ -1,0 +1,32 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="Address">
+    <xs:complexType>
+      <xs:choice>
+        <!-- Address for CAD -->
+        <xs:element name="CAD">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="streetNumber" type="xs:string" minOccurs="0" maxOccurs="1" nillable="true" />
+              <xs:element name="Direction" type="xs:string" minOccurs="0" maxOccurs="1" nillable="true" />
+              <xs:element name="City" type="xs:string" minOccurs="0" maxOccurs="1" nillable="true" default="newjercy" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        
+        <!-- Address for US -->
+        <xs:element name="US">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="streetNumber" type="xs:string" minOccurs="0" maxOccurs="1" nillable="true" />
+              <xs:element name="Area" type="xs:string" minOccurs="0" maxOccurs="1" nillable="true" />
+              <xs:element name="Provinece" type="xs:string" minOccurs="0" maxOccurs="1" nillable="true" default="London" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
