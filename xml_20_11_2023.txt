@@ -94,6 +94,10 @@
 				6.2.4.1.6 NumUnits
 				
 		6.2.5 Deposit list	
+			6.2.5.1 Deposit	
+			
+				6.2.5.1.1 Currency
+				6.2.5.1.2 Amount
 
 
 =============================  Solution  ===================================
@@ -271,9 +275,71 @@
 
 </xs:schema>
 
+
+-------test-----
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Address type -->
+  <xs:complexType name="AddressType">
+    <xs:sequence>
+      <xs:element name="Street" type="xs:string"/>
+      <xs:element name="Direction" type="xs:string"/>
+      <!-- Common elements for both CAD and USA -->
+      <xs:element name="City" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- CAD Address type -->
+  <xs:complexType name="CADAddressType">
+    <xs:complexContent>
+      <xs:extension base="AddressType">
+        <xs:sequence>
+          <!-- CAD-specific elements -->
+          <xs:element name="CADCity" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!-- USA Address type -->
+  <xs:complexType name="USAAddressType">
+    <xs:complexContent>
+      <xs:extension base="AddressType">
+        <xs:sequence>
+          <!-- USA-specific elements -->
+          <xs:element name="Province" type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <!-- Define the main structure -->
+  <xs:element name="Root">
+    <xs:complexType>
+      <xs:choice>
+        <!-- CAD Address -->
+        <xs:element name="CAD">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CADAddress" type="CADAddressType"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <!-- USA Address -->
+        <xs:element name="USA">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="USAAddress" type="USAAddressType"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
+
 		
-			6.2.5.1 Deposit	
-			
-				6.2.5.1.1 Currency
-				6.2.5.1.2 Amount
+
 				
