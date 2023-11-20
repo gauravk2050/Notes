@@ -100,4 +100,3 @@
 				6.2.5.1.1 Currency
 				6.2.5.1.2 Amount
 				
-		6.2.6 AssetType
