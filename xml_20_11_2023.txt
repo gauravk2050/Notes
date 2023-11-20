@@ -94,6 +94,183 @@
 				6.2.4.1.6 NumUnits
 				
 		6.2.5 Deposit list	
+
+
+=============================  Solution  ===================================
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Define complex types -->
+  <xs:complexType name="OwnerType">
+    <xs:sequence>
+      <xs:element name="LastName" type="xs:string"/>
+      <xs:element name="FirstName" type="xs:string"/>
+      <xs:element name="Email" type="xs:string"/>
+      <xs:element name="Sex" type="xs:string"/>
+      <xs:element name="BirthDate" type="xs:date"/>
+      <xs:element name="DeathDate" type="xs:date"/>
+      <xs:element name="SIN" type="xs:string"/>
+      <xs:element name="NEQ" type="xs:string"/>
+      <xs:element name="LANG" type="xs:string"/>
+      <xs:element name="AddressType">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Address1" type="xs:string"/>
+            <xs:element name="Address2" type="xs:string"/>
+            <xs:element name="Address3" type="xs:string"/>
+            <xs:element name="Address4" type="xs:string"/>
+            <xs:element name="City" type="xs:string"/>
+            <xs:element name="Province" type="xs:string"/>
+            <xs:element name="PostalCode" type="xs:string"/>
+            <xs:element name="Country" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define the main structure -->
+  <xs:element name="Remise">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="HolderCategory" type="xs:string"/>
+        <xs:element name="EndFiscalPeriodDate" type="xs:date"/>
+        <xs:element name="Currency" type="xs:string"/>
+        <xs:element name="RQOnlineVerification" type="xs:string"/>
+        <xs:element name="TransitNumber" type="xs:string"/>
+        <xs:element name="Assetlist">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RegisteredPensionPlan">
+                <xs:complexType>
+                  <xs:sequence>
+                    <!-- Elements for Registered Pension Plan -->
+                    <xs:element name="OtherInformation" type="xs:string"/>
+                    <xs:element name="AssetType" type="xs:string"/>
+                    <xs:element name="PlanRegistrationNum" type="xs:string"/>
+                    <!-- ... (other elements) ... -->
+                    <xs:element name="OwnersList">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Owner" type="OwnerType" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
+
+
+-----------------------------------------------------------------------------------------------------
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Owner type -->
+  <xs:complexType name="OwnerType">
+    <xs:sequence>
+      <xs:element name="LastName" type="xs:string"/>
+      <xs:element name="FirstName" type="xs:string"/>
+      <!-- ... (other elements) ... -->
+      <xs:element name="AddressType">
+        <xs:complexType>
+          <xs:sequence>
+            <!-- Address elements -->
+            <xs:element name="Address1" type="xs:string"/>
+            <xs:element name="Address2" type="xs:string"/>
+            <!-- ... (other address elements) ... -->
+            <xs:element name="Country" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Beneficiary type -->
+  <xs:complexType name="BeneficiaryType">
+    <xs:sequence>
+      <xs:element name="LastName" type="xs:string"/>
+      <xs:element name="FirstName" type="xs:string"/>
+      <xs:element name="OwnerRelation" type="xs:string"/>
+      <xs:element name="OwnerRelationDetail" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Security type -->
+  <xs:complexType name="SecurityType">
+    <xs:sequence>
+      <xs:element name="Ticker" type="xs:string"/>
+      <xs:element name="SecurityType" type="xs:string"/>
+      <!-- ... (other elements) ... -->
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Deposit type -->
+  <xs:complexType name="DepositType">
+    <xs:sequence>
+      <xs:element name="Currency" type="xs:string"/>
+      <xs:element name="Amount" type="xs:decimal"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Define the main structure -->
+  <xs:element name="Remise">
+    <xs:complexType>
+      <xs:sequence>
+        <!-- Elements up to 6.1 omitted for brevity -->
+        <xs:element name="Assetlist">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RegisteredPensionPlan">
+                <xs:complexType>
+                  <xs:sequence>
+                    <!-- Elements for Registered Pension Plan -->
+                    <xs:element name="OwnersList" type="OwnerType" maxOccurs="unbounded"/>
+                    <xs:element name="BeneficiariesList">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="Beneficiary" type="BeneficiaryType" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <!-- Elements for Asset Type Investment Account -->
+              <xs:element name="OwnersList" type="OwnerType" maxOccurs="unbounded"/>
+              <xs:element name="AccountOrFolioNumber" type="xs:string"/>
+              <xs:element name="AssetType" type="xs:string"/>
+              <xs:element name="SecuritiesList">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Security" type="SecurityType" maxOccurs="unbounded"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="DepositList">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Deposit" type="DepositType" maxOccurs="unbounded"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <!-- ... (other elements) ... -->
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
+
 		
 			6.2.5.1 Deposit	
 			
