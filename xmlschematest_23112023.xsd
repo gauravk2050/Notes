@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Define the root element -->
+  <xs:element name="Remise">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="HolderCategory" type="xs:string"/>
+        <xs:element name="EndFiscalPeriodDate" type="xs:date"/>
+        <xs:element name="Currency" type="xs:string"/>
+        <xs:element name="RQOnlineVerification" type="xs:boolean"/>
+        <xs:element name="TransitNumber" type="xs:string"/>
+        <xs:element name="Assetlist">
+          <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+              <!-- Asset type Registered Pension Plan -->
+              <xs:element name="RegisteredPensionPlan">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="OtherInformation" type="xs:string"/>
+                    <xs:element name="AssetType" type="xs:string"/>
+                    <xs:element name="PlanRegistrationNum" type="xs:string"/>
+                    <xs:element name="PromoterName" type="xs:string"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <!-- Asset Type Investment Account -->
+              <xs:element name="InvestmentAccount">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="OwnersList" type="xs:string"/>
+                    <xs:element name="AccountOrFolioNumber" type="xs:string"/>
+                    <xs:element name="AssetType" type="xs:string"/>
+                    <xs:element name="SecuritiesList">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <!-- Define SecuritiesList structure -->
+                          <!-- Assuming SecuritiesList contains elements related to securities -->
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <!-- Add more asset types as needed -->
+            </xs:choice>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>
