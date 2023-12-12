@@ -1,0 +1,1110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="https://www.revenuquebec.ca/XMLSchema/GN" elementFormDefault="qualified" targetNamespace="https://www.revenuquebec.ca/XMLSchema/GN" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Address" type="tns:Address" />
+  <xs:complexType name="Address" abstract="true" />
+  <xs:complexType name="AddressUS">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Adress">
+        <xs:all>
+          <xs:element minOccurs="0" maxOccurs="1" name="StreetNumber" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="11"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="StreetName" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="30"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="PostOfficeBox" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="5"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="ApartmentNumber" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="11"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="City" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="60"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="State" nillable="true" type="tns:TypeEtat" />
+          <xs:element minOccurs="0" maxOccurs="1" name="ZipCode" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="5"/>
+                <xs:maxLength value="10"/>
+                <xs:pattern value="^\d{5}(?:[-\s]\d{4})?$"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:all>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="StateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AL" />
+      <xs:enumeration value="AK" />
+      <xs:enumeration value="AZ" />
+      <xs:enumeration value="AR" />
+      <xs:enumeration value="CA" />
+      <xs:enumeration value="NC" />
+      <xs:enumeration value="SC" />
+      <xs:enumeration value="CO" />
+      <xs:enumeration value="CT" />
+      <xs:enumeration value="ND" />
+      <xs:enumeration value="SD" />
+      <xs:enumeration value="DE" />
+      <xs:enumeration value="FL" />
+      <xs:enumeration value="GA" />
+      <xs:enumeration value="HI" />
+      <xs:enumeration value="ID" />
+      <xs:enumeration value="IL" />
+      <xs:enumeration value="IN" />
+      <xs:enumeration value="IA" />
+      <xs:enumeration value="KS" />
+      <xs:enumeration value="KY" />
+      <xs:enumeration value="LA" />
+      <xs:enumeration value="ME" />
+      <xs:enumeration value="MD" />
+      <xs:enumeration value="MA" />
+      <xs:enumeration value="MI" />
+      <xs:enumeration value="MN" />
+      <xs:enumeration value="MS" />
+      <xs:enumeration value="MO" />
+      <xs:enumeration value="MT" />
+      <xs:enumeration value="NE" />
+      <xs:enumeration value="NV" />
+      <xs:enumeration value="NH" />
+      <xs:enumeration value="NJ" />
+      <xs:enumeration value="NY" />
+      <xs:enumeration value="NM" />
+      <xs:enumeration value="OH" />
+      <xs:enumeration value="OK" />
+      <xs:enumeration value="OR" />
+      <xs:enumeration value="PA" />
+      <xs:enumeration value="RI" />
+      <xs:enumeration value="TN" />
+      <xs:enumeration value="TX" />
+      <xs:enumeration value="UT" />
+      <xs:enumeration value="VT" />
+      <xs:enumeration value="VA" />
+      <xs:enumeration value="WV" />
+      <xs:enumeration value="WA" />
+      <xs:enumeration value="WI" />
+      <xs:enumeration value="WY" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AddressCanada">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Adress">
+        <xs:all>
+          <xs:element minOccurs="0" maxOccurs="1" name="StreetNumber" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="11"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="StreetName" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="30"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="Direction" nillable="true" type="tns:TypePointCardinal" />
+          <xs:element minOccurs="0" maxOccurs="1" name="Apartment Number" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="11"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="City" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="60"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="Province" nillable="true" type="tns:TypeProvince" />
+          <xs:element minOccurs="0" maxOccurs="1" name="PostalCode" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="6"/>
+                <xs:maxLength value="6"/>
+                <xs:pattern value="[A-Z][0-9][A-Z][0-9][A-Z][0-9]"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:all>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="TypeDirection">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="N" />
+      <xs:enumeration value="S" />
+      <xs:enumeration value="E" />
+      <xs:enumeration value="O" />
+      <xs:enumeration value="NE" />
+      <xs:enumeration value="NO" />
+      <xs:enumeration value="SE" />
+      <xs:enumeration value="SO" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TypeProvince">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AB" />
+      <xs:enumeration value="BC" />
+      <xs:enumeration value="PE" />
+      <xs:enumeration value="MB" />
+      <xs:enumeration value="NB" />
+      <xs:enumeration value="NS" />
+      <xs:enumeration value="NU" />
+      <xs:enumeration value="ON" />
+      <xs:enumeration value="QC" />
+      <xs:enumeration value="SK" />
+      <xs:enumeration value="NL" />
+      <xs:enumeration value="NT" />
+      <xs:enumeration value="YT" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="AdressOther">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Adress">
+        <xs:all>
+          <xs:element minOccurs="0" maxOccurs="1" name="Line1" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="40"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="Line2" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="40"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="City" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="60"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="PostalCode" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="10"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="Country" nillable="true" type="tns:TypePays" />
+        </xs:all>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="TypeCountry">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AFG" />
+      <xs:enumeration value="ALA" />
+      <xs:enumeration value="ALB" />
+      <xs:enumeration value="DZA" />
+      <xs:enumeration value="ASM" />
+      <xs:enumeration value="AND" />
+      <xs:enumeration value="AGO" />
+      <xs:enumeration value="AIA" />
+      <xs:enumeration value="ATA" />
+      <xs:enumeration value="ATG" />
+      <xs:enumeration value="ARG" />
+      <xs:enumeration value="ARM" />
+      <xs:enumeration value="ABW" />
+      <xs:enumeration value="AUS" />
+      <xs:enumeration value="AUT" />
+      <xs:enumeration value="AZE" />
+      <xs:enumeration value="BHS" />
+      <xs:enumeration value="BHR" />
+      <xs:enumeration value="BGD" />
+      <xs:enumeration value="BRB" />
+      <xs:enumeration value="BLR" />
+      <xs:enumeration value="BEL" />
+      <xs:enumeration value="BLZ" />
+      <xs:enumeration value="BEN" />
+      <xs:enumeration value="BMU" />
+      <xs:enumeration value="BTN" />
+      <xs:enumeration value="BOL" />
+      <xs:enumeration value="BSS" />
+      <xs:enumeration value="BIH" />
+      <xs:enumeration value="BWA" />
+      <xs:enumeration value="BVT" />
+      <xs:enumeration value="BRA" />
+      <xs:enumeration value="VGB" />
+      <xs:enumeration value="IOT" />
+      <xs:enumeration value="BRN" />
+      <xs:enumeration value="BGR" />
+      <xs:enumeration value="BFA" />
+      <xs:enumeration value="BDI" />
+      <xs:enumeration value="KHM" />
+      <xs:enumeration value="CMR" />
+      <xs:enumeration value="CPV" />
+      <xs:enumeration value="CYM" />
+      <xs:enumeration value="CAF" />
+      <xs:enumeration value="TCD" />
+      <xs:enumeration value="CHL" />
+      <xs:enumeration value="CHN" />
+      <xs:enumeration value="HKG" />
+      <xs:enumeration value="MAC" />
+      <xs:enumeration value="CXR" />
+      <xs:enumeration value="CCK" />
+      <xs:enumeration value="COL" />
+      <xs:enumeration value="COM" />
+      <xs:enumeration value="COG" />
+      <xs:enumeration value="COD" />
+      <xs:enumeration value="COK" />
+      <xs:enumeration value="CRI" />
+      <xs:enumeration value="CIV" />
+      <xs:enumeration value="HRV" />
+      <xs:enumeration value="CUB" />
+      <xs:enumeration value="CUR" />
+      <xs:enumeration value="CYP" />
+      <xs:enumeration value="CZE" />
+      <xs:enumeration value="DNK" />
+      <xs:enumeration value="DJI" />
+      <xs:enumeration value="DMA" />
+      <xs:enumeration value="DOM" />
+      <xs:enumeration value="ECU" />
+      <xs:enumeration value="EGY" />
+      <xs:enumeration value="SLV" />
+      <xs:enumeration value="GNQ" />
+      <xs:enumeration value="ERI" />
+      <xs:enumeration value="EST" />
+      <xs:enumeration value="ETH" />
+      <xs:enumeration value="FLK" />
+      <xs:enumeration value="FRO" />
+      <xs:enumeration value="FJI" />
+      <xs:enumeration value="FIN" />
+      <xs:enumeration value="FRA" />
+      <xs:enumeration value="GUF" />
+      <xs:enumeration value="PYF" />
+      <xs:enumeration value="ATF" />
+      <xs:enumeration value="GAB" />
+      <xs:enumeration value="GMB" />
+      <xs:enumeration value="GEO" />
+      <xs:enumeration value="DEU" />
+      <xs:enumeration value="GHA" />
+      <xs:enumeration value="GIB" />
+      <xs:enumeration value="GRC" />
+      <xs:enumeration value="GRL" />
+      <xs:enumeration value="GRD" />
+      <xs:enumeration value="GLP" />
+      <xs:enumeration value="GUM" />
+      <xs:enumeration value="GTM" />
+      <xs:enumeration value="GGY" />
+      <xs:enumeration value="GIN" />
+      <xs:enumeration value="GNB" />
+      <xs:enumeration value="GUY" />
+      <xs:enumeration value="HTI" />
+      <xs:enumeration value="HMD" />
+      <xs:enumeration value="VAT" />
+      <xs:enumeration value="HND" />
+      <xs:enumeration value="HUN" />
+      <xs:enumeration value="ISL" />
+      <xs:enumeration value="IND" />
+      <xs:enumeration value="IDN" />
+      <xs:enumeration value="IRN" />
+      <xs:enumeration value="IRQ" />
+      <xs:enumeration value="IRL" />
+      <xs:enumeration value="IMN" />
+      <xs:enumeration value="ISR" />
+      <xs:enumeration value="ITA" />
+      <xs:enumeration value="JAM" />
+      <xs:enumeration value="JPN" />
+      <xs:enumeration value="JEY" />
+      <xs:enumeration value="JOR" />
+      <xs:enumeration value="KAZ" />
+      <xs:enumeration value="KEN" />
+      <xs:enumeration value="KIR" />
+      <xs:enumeration value="PRK" />
+      <xs:enumeration value="KOR" />
+      <xs:enumeration value="KWT" />
+      <xs:enumeration value="KGZ" />
+      <xs:enumeration value="LAO" />
+      <xs:enumeration value="LVA" />
+      <xs:enumeration value="LBN" />
+      <xs:enumeration value="LSO" />
+      <xs:enumeration value="LBR" />
+      <xs:enumeration value="LBY" />
+      <xs:enumeration value="LIE" />
+      <xs:enumeration value="LTU" />
+      <xs:enumeration value="LUX" />
+      <xs:enumeration value="MKD" />
+      <xs:enumeration value="MDG" />
+      <xs:enumeration value="MWI" />
+      <xs:enumeration value="MYS" />
+      <xs:enumeration value="MDV" />
+      <xs:enumeration value="MLI" />
+      <xs:enumeration value="MLT" />
+      <xs:enumeration value="MHL" />
+      <xs:enumeration value="MTQ" />
+      <xs:enumeration value="MRT" />
+      <xs:enumeration value="MUS" />
+      <xs:enumeration value="MYT" />
+      <xs:enumeration value="MEX" />
+      <xs:enumeration value="FSM" />
+      <xs:enumeration value="MDA" />
+      <xs:enumeration value="MCO" />
+      <xs:enumeration value="MNG" />
+      <xs:enumeration value="MNE" />
+      <xs:enumeration value="MSR" />
+      <xs:enumeration value="MAR" />
+      <xs:enumeration value="MOZ" />
+      <xs:enumeration value="MMR" />
+      <xs:enumeration value="NAM" />
+      <xs:enumeration value="NRU" />
+      <xs:enumeration value="NPL" />
+      <xs:enumeration value="NLD" />
+      <xs:enumeration value="ANT" />
+      <xs:enumeration value="NCL" />
+      <xs:enumeration value="NZL" />
+      <xs:enumeration value="NIC" />
+      <xs:enumeration value="NER" />
+      <xs:enumeration value="NGA" />
+      <xs:enumeration value="NIU" />
+      <xs:enumeration value="NFK" />
+      <xs:enumeration value="MNP" />
+      <xs:enumeration value="NOR" />
+      <xs:enumeration value="OMN" />
+      <xs:enumeration value="PAK" />
+      <xs:enumeration value="PLW" />
+      <xs:enumeration value="PSE" />
+      <xs:enumeration value="PAN" />
+      <xs:enumeration value="PNG" />
+      <xs:enumeration value="PRY" />
+      <xs:enumeration value="PER" />
+      <xs:enumeration value="PHL" />
+      <xs:enumeration value="PCN" />
+      <xs:enumeration value="POL" />
+      <xs:enumeration value="PRT" />
+      <xs:enumeration value="PRI" />
+      <xs:enumeration value="QAT" />
+      <xs:enumeration value="REU" />
+      <xs:enumeration value="ROU" />
+      <xs:enumeration value="RUS" />
+      <xs:enumeration value="RWA" />
+      <xs:enumeration value="BLM" />
+      <xs:enumeration value="SHN" />
+      <xs:enumeration value="KNA" />
+      <xs:enumeration value="LCA" />
+      <xs:enumeration value="MAF" />
+      <xs:enumeration value="SPM" />
+      <xs:enumeration value="VCT" />
+      <xs:enumeration value="WSM" />
+      <xs:enumeration value="SMR" />
+      <xs:enumeration value="STP" />
+      <xs:enumeration value="SAU" />
+      <xs:enumeration value="SEN" />
+      <xs:enumeration value="SRB" />
+      <xs:enumeration value="SYC" />
+      <xs:enumeration value="SLE" />
+      <xs:enumeration value="SGP" />
+      <xs:enumeration value="SVK" />
+      <xs:enumeration value="SVN" />
+      <xs:enumeration value="SLB" />
+      <xs:enumeration value="SOM" />
+      <xs:enumeration value="ZAF" />
+      <xs:enumeration value="SGS" />
+      <xs:enumeration value="SSD" />
+      <xs:enumeration value="ESP" />
+      <xs:enumeration value="LKA" />
+      <xs:enumeration value="SDN" />
+      <xs:enumeration value="SUR" />
+      <xs:enumeration value="SJM" />
+      <xs:enumeration value="SWZ" />
+      <xs:enumeration value="SWE" />
+      <xs:enumeration value="CHE" />
+      <xs:enumeration value="SYR" />
+      <xs:enumeration value="TWN" />
+      <xs:enumeration value="TJK" />
+      <xs:enumeration value="TZA" />
+      <xs:enumeration value="THA" />
+      <xs:enumeration value="TLS" />
+      <xs:enumeration value="TGO" />
+      <xs:enumeration value="TKL" />
+      <xs:enumeration value="TON" />
+      <xs:enumeration value="TTO" />
+      <xs:enumeration value="TUN" />
+      <xs:enumeration value="TUR" />
+      <xs:enumeration value="TKM" />
+      <xs:enumeration value="TCA" />
+      <xs:enumeration value="TUV" />
+      <xs:enumeration value="UGA" />
+      <xs:enumeration value="UKR" />
+      <xs:enumeration value="ARE" />
+      <xs:enumeration value="GBR" />
+      <xs:enumeration value="UMI" />
+      <xs:enumeration value="URY" />
+      <xs:enumeration value="UZB" />
+      <xs:enumeration value="VUT" />
+      <xs:enumeration value="VEN" />
+      <xs:enumeration value="VNM" />
+      <xs:enumeration value="VIR" />
+      <xs:enumeration value="WLF" />
+      <xs:enumeration value="ESH" />
+      <xs:enumeration value="YEM" />
+      <xs:enumeration value="ZMB" />
+      <xs:enumeration value="ZWE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="AdresseAutre" type="tns:AdressOther" nillable="true"/>
+  <xs:element name="AdresseCanada" type="tns:AdressCanada" nillable="true"/>
+  <xs:element name="AdresseEtatsUnis" type="tns:AdressUS"  nillable="true"/>
+  <xs:element name="Beneficiaire" type="tns:Beneficiaire" nillable="true"/>
+  <xs:complexType name="Beneficiaire">
+    <xs:all>
+      <xs:element minOccurs="0" maxOccurs="1" name="LastName" nillable="true">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="65"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="FirstName" nillable="true">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="30"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="OwnersList" type="tns:OwnersList" />
+      <xs:element minOccurs="0" maxOccurs="1" name="PrecisionLienProprietaire" nillable="true">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="250"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+  <xs:simpleType name="OwnerRelationDetail">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Spouse" />
+      <xs:enumeration value="Child" />
+      <xs:enumeration value="Other" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Asset" type="tns:Asset" />
+  <xs:complexType name="Asset">
+  </xs:complexType>
+  <xs:complexType name="ArrayOfOwners">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Owner" nillable="true" type="tns:Owner" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Owner">
+    <xs:all>
+      <xs:element minOccurs="0" maxOccurs="1" name="LastName" nillable="true">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="65"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="FirstName" nillable="true">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="30"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Email" nillable="true">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="320"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Sex" nillable="true" type="tns:TypeSex" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BirthDate" nillable="true" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="DeathDate" nillable="true" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="SIN" nillable="true">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="9"/>
+            <xs:maxLength value="9"/>
+            <xs:pattern value="[0-9]{9}"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="NEQ" nillable="true">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="10"/>
+            <xs:maxLength value="10"/>
+            <xs:pattern value="[0-9]{10}"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Language" nillable="true" type="tns:TypeLanguage" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Address" nillable="true" type="tns:Address" />
+    </xs:all>
+  </xs:complexType>
+  <xs:simpleType name="TypeSex">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="M" />
+      <xs:enumeration value="F" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TypeLanguage">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="F" />
+      <xs:enumeration value="A" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="InvestmentAsset">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Bien">
+        <xs:all>
+          <xs:element minOccurs="0" maxOccurs="1" name="OtherInformation"  nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="250"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="AssetList" type="tns:ArrayOfOwners"  nillable="true"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="TypeAsset" type="tns:TypeInvestmentAsset"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="AccountNum" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="50"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="1" maxOccurs="1" name="TypeCompte">
+            <xs:simpleType>
+              <xs:restriction base="xs:integer">
+                <xs:minInclusive value="1"/>
+                <xs:maxInclusive value="8"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="AccountTypeDetail" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="250"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="SecuritiesList" type="tns:ArrayOfSecurities"  nillable="true"/>
+          <xs:element minOccurs="0" maxOccurs="1" name="DepositsList" type="tns:ArrayOfDeposits"  nillable="true"/>
+        </xs:all>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="TypeInvestmentAsset">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SC60" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TypeCurrency">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CAD" />
+      <xs:enumeration value="USD" />
+      <xs:enumeration value="ATS" />
+      <xs:enumeration value="AUD" />
+      <xs:enumeration value="BBD" />
+      <xs:enumeration value="BEF" />
+      <xs:enumeration value="CHF" />
+      <xs:enumeration value="DEM" />
+      <xs:enumeration value="DKK" />
+      <xs:enumeration value="EUR" />
+      <xs:enumeration value="FIM" />
+      <xs:enumeration value="FRF" />
+      <xs:enumeration value="GBP" />
+      <xs:enumeration value="HKD" />
+      <xs:enumeration value="IEP" />
+      <xs:enumeration value="INR" />
+      <xs:enumeration value="ITL" />
+      <xs:enumeration value="JPY" />
+      <xs:enumeration value="MXN" />
+      <xs:enumeration value="NLG" />
+      <xs:enumeration value="NOK" />
+      <xs:enumeration value="NZD" />
+      <xs:enumeration value="PKR" />
+      <xs:enumeration value="PTE" />
+      <xs:enumeration value="SGD" />
+      <xs:enumeration value="SEK" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ArrayOfSecurities>
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Securities" nillable="true" type="tns:Securities" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfDeposits">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Deposit" nillable="true" type="tns:Deposits" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Titre">
+    <xs:all>
+      <xs:element minOccurs="0" maxOccurs="1" name="Ticker" nillable="true">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="10"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="SecurityName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="65"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="SecurityType">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="NumUnits" >
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="4"/>
+            <xs:maxInclusive value="999999999999.9999"/>
+            <xs:minExclusive value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="SecurityCurrency" type="tns:SecurityCurrency"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="LastStatementDate" type="xs:date" />
+      <xs:element minOccurs="1" maxOccurs="1" name="LastStatementUnitPrice" >
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="4"/>
+            <xs:maxInclusive value="9999999999999.9999"/>
+            <xs:minInclusive value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="Deposit">
+    <xs:all>
+      <xs:element minOccurs="1" maxOccurs="1" name="Deposi" type="tns:TypeDeposi"/>
+      <xs:element minOccurs="1" maxOccurs="1" name="Amount" >
+        <xs:simpleType>
+          <xs:restriction base="xs:decimal">
+            <xs:fractionDigits value="2"/>
+            <xs:maxInclusive value="9999999999999.99"/>
+            <xs:minInclusive value="0"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="RegRetirePlanAsset">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Asset">
+        <xs:all>
+          <xs:element minOccurs="0" maxOccurs="1" name="OtherInformation" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="250"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="AssetList" type="tns:ArrayOfOwners" nillable="true"/>
+          <xs:element minOccurs="1" maxOccurs="1" name="TypeBien" type="tns:RegRetirePlan" />
+          <xs:element minOccurs="1" maxOccurs="1" name="PlanRegistrationNum" >
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="15"/>
+                <xs:maxLength value="15"/>
+                <xs:pattern value="[0-9]{15}"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="1" maxOccurs="1" name="PromoterName">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="65"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="1" maxOccurs="1" name="SubmissionReason">
+            <xs:simpleType>
+              <xs:restriction base="xs:integer">
+                <xs:minInclusive value="1"/>
+                <xs:maxInclusive value="5"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="SubmissionReasonDetail"  nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="250"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="1" maxOccurs="1" name="Assetvalue" >
+            <xs:simpleType>
+              <xs:restriction base="xs:decimal">
+                <xs:fractionDigits value="2"/>
+                <xs:maxInclusive value="9999999999999.99"/>
+                <xs:minExclusive value="0"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="1" maxOccurs="1" name="SourcePlanType">
+            <xs:simpleType>
+              <xs:restriction base="xs:integer">
+                <xs:pattern value="^((2)|(4)|(10)|(11)|(14))$"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="1" maxOccurs="1" name="DestinationPlanType">
+            <xs:simpleType>
+              <xs:restriction base="xs:integer">
+                <xs:pattern value="^((2)|(4)|(10)|(11)|(14))$"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="1" maxOccurs="1" name="ApplicableLaw" type="tns:ApplicableLaw" />
+          <xs:element minOccurs="0" maxOccurs="1" name="EndEmploymentDate" nillable="true" type="xs:date" />
+          <xs:element minOccurs="1" maxOccurs="1" name="PlanOpenDate" type="xs:date" />
+          <xs:element minOccurs="1" maxOccurs="1" name="NewPlan" type="xs:boolean" />
+          <xs:element minOccurs="0" maxOccurs="1" name="LiseBeneficiaries" nillable="true" type="tns:ArrayOfBeneficiaries" />
+        </xs:all>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="RegRetirePlanAsset">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RP01" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="TypeLegislation">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FD" />
+      <xs:enumeration value="QC" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ArrayOfBeneficiaries">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Beneficiaries" nillable="true" type="tns:Beneficiaries" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LiqRetirePlanAsset">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Asset">
+        <xs:all>
+          <xs:element minOccurs="0" maxOccurs="1" name="OtherInformation" nillable="true" >
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="250"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="OwnersList" nillable="true" type="tns:ArrayOfOwners" />
+          <xs:element minOccurs="1" maxOccurs="1" name="AssetType" type="tns:LiqRetirePlanAsset" />
+          <xs:element minOccurs="1" maxOccurs="1" name="PlanRegistrationNum">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="15"/>
+                <xs:maxLength value="15"/>
+                <xs:pattern value="[0-9]{15}"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="1" maxOccurs="1" name="PromoterName">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="65"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="1" maxOccurs="1" name="SubmissionReason">
+            <xs:simpleType>
+              <xs:restriction base="xs:integer">
+                <xs:minInclusive value="1"/>
+                <xs:maxInclusive value="5"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="SubmissionReasonDetail"  nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="250"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="1" maxOccurs="1" name="AssetValue" >
+            <xs:simpleType>
+              <xs:restriction base="xs:decimal">
+                <xs:fractionDigits value="2"/>
+                <xs:maxInclusive value="9999999999999.99"/>
+                <xs:minExclusive value="0"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="EndEmploymentDate" nillable="true" type="xs:date" />
+          <xs:element minOccurs="1" maxOccurs="1" name="FedIncomeTaxWithheld">
+            <xs:simpleType>
+              <xs:restriction base="xs:decimal">
+                <xs:fractionDigits value="2"/>
+                <xs:maxInclusive value="9999999999999.99"/>
+                <xs:minInclusive value="0"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="1" maxOccurs="1" name="ProvIncomeTaxWithheld">
+            <xs:simpleType>
+              <xs:restriction base="xs:decimal">
+                <xs:fractionDigits value="2"/>
+                <xs:maxInclusive value="9999999999999.99"/>
+                <xs:minInclusive value="0"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="BeneficiariesList" nillable="true" type="tns:ArrayOfBeneficiaries" />
+        </xs:all>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="LiqRetirePlanAsset">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RP02" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="LifeInsurance">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Asset">
+        <xs:all>
+          <xs:element minOccurs="0" maxOccurs="1" nillable="true" name="OtherInformation" >
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="250"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="OwnersList" nillable="true" type="tns:ArrayOfOwners" />
+          <xs:element minOccurs="1" maxOccurs="1" name="AssetType" type="tns:TypeLifeInsuranceAsset" />
+          <xs:element minOccurs="1" maxOccurs="1" name="AssetValue">
+            <xs:simpleType>
+              <xs:restriction base="xs:decimal">
+                <xs:fractionDigits value="2"/>
+                <xs:maxInclusive value="9999999999999.99"/>
+                <xs:minExclusive value="0"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="PolicyorReferenceNumber" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="50"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="1" maxOccurs="1" name="AnnuityChequeNoDeposit" type="xs:boolean" />
+          <xs:element minOccurs="0" maxOccurs="1" name="ChequeNoDeposit" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="25"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="ChequeNoDepositDate" nillable="true" type="xs:date" />
+          <xs:element minOccurs="0" maxOccurs="1" name="BeneficiariesList" nillable="true" type="tns:ArrayOfBeneficiaries" />
+          <xs:element minOccurs="0" maxOccurs="1" name="MaturityDate" nillable="true" type="xs:date" />
+        </xs:all>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="LifeInsuranceAsset">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="IN01" />
+      <xs:enumeration value="IN02" />
+      <xs:enumeration value="IN04" />
+      <xs:enumeration value="IN05" />
+      <xs:enumeration value="IN06" />
+      <xs:enumeration value="IN07" />
+      <xs:enumeration value="IN09" />
+      <xs:enumeration value="IN11" />
+      <xs:enumeration value="IN12" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="OtherAssets">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Asset">
+        <xs:all>
+          <xs:element minOccurs="0" maxOccurs="1" name="OtherInformation" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="250"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="OwernsList" nillable="true" type="tns:ArrayOfOwners" />
+          <xs:element minOccurs="1" maxOccurs="1" name="AssetType" type="tns:OtherAssetType" />
+          <xs:element minOccurs="1" maxOccurs="1" name="AssetValue" >
+            <xs:simpleType>
+              <xs:restriction base="xs:decimal">
+                <xs:fractionDigits value="2"/>
+                <xs:maxInclusive value="9999999999999.99"/>
+                <xs:minExclusive value="0"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="AccountorfolioNumber" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="25"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" maxOccurs="1" name="ChequeNoDepositDate" nillable="true" type="xs:date" />
+          <xs:element minOccurs="0" maxOccurs="1" name="ChequeNumber" nillable="true">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1"/>
+                <xs:maxLength value="25"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:all>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="LifeInsuranceAsset" type="tns:LifeInsuranceAsset" />
+  <xs:element name="OtherAssets" type="tns:OtherAssets" />
+  <xs:element name="RegRetirePlanAsset" type="tns:RegRetirePlanAsset" />
+  <xs:element name="LiqRetirePlanAsset" type="tns:LiqRetirePlanAsset" />
+  <xs:element name="InvestmentAsset" type="tns:InvestmentAsset" />
+  <xs:element name="Owners" type="tns:Owners" />
+  <xs:element name="Submission" type="tns:Submission" />
+  <xs:complexType name="Submission>
+    <xs:all>
+      <xs:element minOccurs="1" maxOccurs="1" name="HolderCategory">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="29"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="TransitNumber" nillable="true">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="8"/>
+            <xs:maxLength value="8"/>
+            <xs:pattern value="[0-9]{8}"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="EndFiscalPeriodDate" type="xs:date" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Currency" type="tns:TypeCurrency" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RQOnlineVerification" type="xs:boolean" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AssetList" nillable="true" type="tns:ArrayOfAssets" />
+    </xs:all>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfAssets">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="unbounded" name="Assets" nillable="false" type="tns:Assets" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Titre" type="tns:Titre" />
+  <xs:element name="TypeLifeInsuranceAsset" type="tns:TypeLifeInsuranceAsset" />
+  <xs:element name="TypeOtherAssets" type="tns:TypeOtherAssets" />
+  <xs:simpleType name="TypeOtherAssets">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AC01" />
+      <xs:enumeration value="AC02" />
+      <xs:enumeration value="AC05" />
+      <xs:enumeration value="AC07" />
+      <xs:enumeration value="CK02" />
+      <xs:enumeration value="CK05" />
+      <xs:enumeration value="CK15" />
+      <xs:enumeration value="CT01" />
+      <xs:enumeration value="CT02" />
+      <xs:enumeration value="CT03" />
+      <xs:enumeration value="MS01" />
+      <xs:enumeration value="MS11" />
+      <xs:enumeration value="MS15" />
+      <xs:enumeration value="MS99" />
+      <xs:enumeration value="RE01" />
+      <xs:enumeration value="SC01" />
+      <xs:enumeration value="SC02" />
+      <xs:enumeration value="SC13" />
+      <xs:enumeration value="SC23" />
+      <xs:enumeration value="SC24" />
+      <xs:enumeration value="UT02" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TypeLiqRetirePlanAsset" type="tns:TypeLiqRetirePlanAsset" />
+  <xs:element name="TypeRegRetirePlanAsset" type="tns:TypeRegRetirePlanAsset" />
+  <xs:element name="TypeInvestmentAsset" type="tns:TypeInvestmentAsset" />
+  <xs:element name="TypeCurrency" type="tns:TypeCurrency" />
+  <xs:element name="TypeState" type="tns:TypeState" />
+  <xs:element name="TypeLanguage" type="tns:TypeLanguage" />
+  <xs:element name="TypeLegislation" type="tns:TypeLegislation" />
+  <xs:element name="TypeCountry" type="tns:TypeCountry" />
+  <xs:element name="TypeDirection" type="tns:TypeDirection
+  <xs:element name="TypeSex" type="tns:TypeSex" />
+</xs:schema>
