@@ -1,53 +1,105 @@
-<?xml version="1.0"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+IN INITIAL PHASE WE HAVE THE FOLLOWING RESOURCE: - 
 
-  <!-- Define the root element -->
-  <xs:element name="Remise">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="HolderCategory" type="xs:string"/>
-        <xs:element name="EndFiscalPeriodDate" type="xs:date"/>
-        <xs:element name="Currency" type="xs:string"/>
-        <xs:element name="RQOnlineVerification" type="xs:boolean"/>
-        <xs:element name="TransitNumber" type="xs:string"/>
-        <xs:element name="Assetlist">
-          <xs:complexType>
-            <xs:choice maxOccurs="unbounded">
-              <!-- Asset type Registered Pension Plan -->
-              <xs:element name="RegisteredPensionPlan">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="OtherInformation" type="xs:string"/>
-                    <xs:element name="AssetType" type="xs:string"/>
-                    <xs:element name="PlanRegistrationNum" type="xs:string"/>
-                    <xs:element name="PromoterName" type="xs:string"/>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <!-- Asset Type Investment Account -->
-              <xs:element name="InvestmentAccount">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="OwnersList" type="xs:string"/>
-                    <xs:element name="AccountOrFolioNumber" type="xs:string"/>
-                    <xs:element name="AssetType" type="xs:string"/>
-                    <xs:element name="SecuritiesList">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <!-- Define SecuritiesList structure -->
-                          <!-- Assuming SecuritiesList contains elements related to securities -->
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <!-- Add more asset types as needed -->
-            </xs:choice>
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+XSD in French schema 
 
-</xs:schema>
+we were having a PDF consisting of sample output in the form of screenshots, due to which we were not able to copy that XML schema from the PDF for R&D perspective. 
+
+And the TDM 
+
+ISSUES: -  
+
+The conversion of the French tag to English in which we approached Lisa and Leon they helped to provide the converted schema but due to the conversion we have many syntaxes issue in that particular schema and so we have to change the French name to English in the original source scheme only. 
+
+After getting the proper schema we need to understand the flow of this schema to map the elements in IICS we connected to business to set up the call for solving queries and understand the flow of their schema but they refuse to connect over call and asked to discuss over the mail which was not much useful and after that we raised the ticket to DBIT then informatica person change the schema but the change in schema which happened is not aligned with the business requirements as they changed mandatory fields to the non-mandatory ones. 
+
+Then we had discussion with Ming who explains schema and suggested to map all mandatory fields and this explanation of flow help us to generate hierarchy of XML and IICS. 
+
+ 
+
+ISSUES IN THE FIELDS: - 
+
+ADDRESS VERIFIER: - 
+
+We don't have exact field which has to be mapped in the address so we are attaching the R&D file for the address verifier fields that were available in IICS and want to know the fields that we can map for the final output in IICS.  
+
+Refer to this File:-  xml_Address_field_mapping.xlsx 
+
+DISCREPANCIES BETWEEN XML SCHEMA AND TDM: - 
+
+Transit number - As per xsd file we cannot leave it as blank due to min and max length constraint in XSD file. 
+
+Other Property: - 
+
+Otherinfo cannot be blank, min length 1 is mentioned in XSD file 
+
+Asset type cannot be CK17 due to enumeration error (as per XSD file value can only be AC01, AC02, AC05, AC07 ,CK02 ,CK05 ,CK15 ,CT01 ,CT02 ,CT03 ,MS01 ,MS11 ,MS15 ,MS99 ,RE01 ,SC01 ,SC02 ,SC13 ,SC23 ,SC24 ,UT02) 
+
+Email cannot be blank, in XSD file min length is 1 and in TDM it is mentioned to leave as blank. 
+
+Sex cannot be blank, in XSD file, it is mentioned that value of sex can be only M or F 
+
+NEQ cannot be blank, min length 10 is mentioned in XSD file. 
+
+Lang cannot be blank, in XSD file, it is mentioned that value of Lang can be only F or A 
+
+Data type for date fields in this type should be changed to either date/time or string as IICS don’t have date data type (IICS is having date/time data type). If it is date/time, it appends time with the date as well. 
+
+Liquidated Registered Pension Plan: - 
+
+Other information cannot be blank, min length 1 is mentioned in XSD file. 
+
+Asset type can only accept RP02 due to enumeration error (as per XSD file value can only be RP02) 
+
+SubmissionReasonDetail cannot be blank, min length 1 is mentioned in XSD file. 
+
+email cannot be blank, in XSD file min length is 1 and in TDM it is mentioned to leave as blank. 
+
+sex cannot be blank, in XSD file, it is mentioned that value of sex can be only M or F 
+
+NEQ cannot be blank, min length 10 is mentioned in XSD file. 
+
+OwnerRelation can only be Spouse, Child and other as per XSD file. 
+
+OwnerRelationDetail cannot be blank, min length 1 is mentioned in XSD file. 
+
+Last Name, First Name under Beneficiary element cannot be blank, min length 1 is mentioned in XSD file. 
+
+data type for date fields in this type should be changed to either date/time or string as IICS don’t have date data type (IICS is having date/time data type). If it is date/time, it appends time with the date as well. 
+
+Registered Pension Plan: 
+
+SubmissionReasonDetail cannot be blank, min length 1 is mentioned in XSD file 
+
+email cannot be blank, in XSD file min length is 1 and in TDM it is mentioned to leave as blank. 
+
+sex cannot be blank, in XSD file, it is mentioned that value of sex can be only M or F 
+
+NEQ cannot be blank, min length 10 is mentioned in XSD file 
+
+OwnerRelation can only be Spouse, Child and other as per XSD file. 
+
+OwnerRelationDetail cannot be blank, min length 1 is mentioned in XSD file. 
+
+Last Name, First Name under Beneficiary element cannot be blank, min length 1 is mentioned in XSD file. 
+
+data type for date fields in this type should be changed to either date/time or string as IICS don’t have date data type (IICS is having date/time data type). If it is date/time, it appends time with the date as well. 
+
+Investment Account: - 
+
+other information cannot be blank, min length 1 is mentioned in XSD file. 
+
+AccountOrFolioNumber cannot be blank, min length 1 is mentioned in XSD file. 
+
+account type is integer, there is a formula in TDM in which else value is not listed (It should be integer and cannot be blank or string) 
+
+email cannot be blank, in XSD file min length is 1 and in TDM it is mentioned to leave as blank. 
+
+sex cannot be blank, in XSD file, it is mentioned that value of sex can be only M or F 
+
+NEQ cannot be blank, min length 10 is mentioned in XSD file. 
+
+Ticker cannot be blank, min length 1 is mentioned in XSD file. 
+
+Asset type can only accept SC60 due to enumeration error (as per XSD file value can only be SC60). There is a formula in TDM in which it is said to leave it as blank in else condition, but it can only be SC60 and cannot be blank. 
+
+data type for date fields in this type should be changed to either date/time or string as IICS don’t have date data type (IICS is having date/time data type). If it is date/time, it appends time with the date as well. 
