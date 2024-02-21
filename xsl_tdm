@@ -1,0 +1,32 @@
+
+In the initial phase, we possess the following resources to commence our efforts:
+
+XSD Document in French:
+Challenge: The XSD document is in French, necessitating a translation of the tags to English to facilitate XML generation.
+
+Sample Output:
+Challenge: The sample output is provided in PDF format, posing difficulties in utilizing it effectively for XML generation, particularly from an R&D perspective.
+
+TDM (Transformation Data Model):
+Challenge: Discrepancies exist between the TDM document and the Schema provided by the Business, necessitating alignment.
+For instance, the TDM may specify leaving a field empty while the corresponding Schema mandates its completion with specified precision parameters (minimum and maximum).
+
+
+Issues in Detail:
+
+Conversion of French Tags to English:
+Upon seeking assistance from Lisa and LeAnne for translating the French tags to English in the schema, numerous syntax issues emerged in the converted schema. Consequently, instead of fully translating the schema to English, we retained the original French schema and translated only the French tags to English within it.
+
+Understanding Schema Flow and Mapping Elements in IICS:
+Despite attempts to connect with the business for clarifications on schema flow and element mapping in IICS, they declined to engage in a call, preferring email correspondence which proved less fruitful. Subsequently, a ticket was raised with Informatica to address the issue from the IICS perspective. Informatica's intervention involved modifying the schema by converting mandatory fields to non-mandatory ones, allowing for data generation even if specific fields remain unmapped. However, this schema alteration does not align with the original business requirements, as mandatory fields were made non-mandatory.
+
+Resolution of Discrepancies Between TDM and XSD:
+Following discussions with Ming, who clarified the mandatory elements within the schema, and analyzed the disparities between TDM and XSD, we devised a workaround to generate data using dummy values. Currently, the development team, in collaboration with Lisa, is working to resolve these discrepancies and produce the required output without relying on workaround data.
+
+Lack of Transformation Logic for Address Fields in TDM:
+An additional issue pertains to the absence of transformation logic for address fields in TDM. To address this, transformation suggestions have been proposed by the development team, pending further discussion.
+
+
+Please refer to the attached document for a comprehensive list of issues identified within the Transformation Data Model (TDM).
+
+Summary: The complexity of the schema posed challenges in comprehending the issues within the XSD file. Subsequent discussions with Ming regarding the XSD provided valuable insights, enabling us to understand the schema better, identify issues, and successfully generate the XML output.
