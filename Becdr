@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Check if the correct number of arguments is provided
+if [ $# -ne 2 ]; then
+    echo "Usage: $0 <directory> <pattern>"
+    exit 1
+fi
+
+directory="$1"
+pattern="$2"
+
+# Check if the directory exists
+if [ ! -d "$directory" ]; then
+    echo "Directory $directory not found"
+    exit 1
+fi
+
+# List file names with the specified pattern in the directory
+ls "$directory" | grep "$pattern"
