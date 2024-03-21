@@ -1,13 +1,7 @@
 #!/bin/bash
 
-# Check if the correct number of arguments is provided
-if [ $# -ne 2 ]; then
-    echo "Usage: $0 <directory> <pattern>"
-    exit 1
-fi
-
-directory="$1"
-pattern="$2"
+# Define the directory path
+directory="/var/sourcefile/abc/"
 
 # Check if the directory exists
 if [ ! -d "$directory" ]; then
@@ -15,5 +9,7 @@ if [ ! -d "$directory" ]; then
     exit 1
 fi
 
-# List file names with the specified pattern in the directory
-ls "$directory" | grep "$pattern"
+# Create a file containing the list of file names with ".out" pattern
+find "$directory" -type f -name "*.out" -exec basename {} \; > file_names_with_pattern.txt
+
+echo "File containing file names with '.out' pattern created successfully: file_names_with_pattern.txt"
